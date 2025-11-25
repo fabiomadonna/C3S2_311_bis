@@ -1,8 +1,10 @@
-setwd("D:/PostDoc/E-Profile wind radar/New docs-e-profile")
+# Set your working directory here
+setwd("E-PROFILE")  # <-- set your path
 
 ## RUNTIME TIMER 
 start_time <- Sys.time()
 start_cpu  <- proc.time()
+
 # Packages
 required_packages <- c(
   "readr","dplyr","parallel","lubridate","foreach","doParallel",
@@ -18,11 +20,11 @@ for (pkg in required_packages) {
   }
 }
 
-# USER PATHS
-data_dir           <- "D:/PostDoc/E-Profile wind radar/New docs-e-profile/Data_eprofile"
-output_file_prefix <- "testttttt_complete"
-log_dir            <- "D:/PostDoc/E-Profile wind radar/New docs-e-profile/log/Data_eprofile"
-nc_out_dir         <- "D:/PostDoc/E-Profile wind radar/New docs-e-profile/Data_eprofile"
+# USER PATHS (set your paths)
+data_dir           <- "Data_eprofile"       # <-- set your path for input/output CSVs
+output_file_prefix <- "testttttt_complete"  # output file prefix
+log_dir            <- "logs"                # <-- set your path for logs
+nc_out_dir         <- "Data_eprofile"       # <-- set your path for NetCDF output
 dir.create(log_dir, recursive = TRUE, showWarnings = FALSE)
 dir.create(nc_out_dir, recursive = TRUE, showWarnings = FALSE)
 
