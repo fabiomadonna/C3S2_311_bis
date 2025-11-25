@@ -1,15 +1,65 @@
-E-PROFILE WIND PROFILER — EXTENDED USER GUIDE WITH WORKFLOW SCHEMES
-1. INTRODUCTION
-This document provides an extended and betternstructured explanation of the EnPROFILE wind
-profiler
-processing workflow, integrating the official guide with a detailed analysis of the script
-“After_optimizing_eprofile.R”. It also includes conceptual workflow schemes to clarify the data
-pipeline.
+# ECMWF Software with Documentation (SD) Deliverable
+
+**Project / Activity Name:** E-PROFILE Wind Profilers' Data Processing System
+**Version:** 1.0.0
+**Date:** 2025-11-24
+**Author(s):** Faezeh Karimian Saracks, Fabio Madonna, Emanuele Tramutola
+
+---
+
+## 1. Purpose
+This document includes workflow explanations, expanded scientific background, block-diagram visualizations, and technical commentary on each component
+of the R scripts used to retrieve and process the E-PROFILE wind profilers' data and obtained the time-aggregated version of the datasets, specifically designed for the 
+Copernicus Data Store.
+
+The processing workflow performs: metadata extraction 
+- data access and download (including handling of certificates to access the data)
+- raw data extraction and filtering 
+- cleaning 
+- computation of wind metrics 
+- multiple aggregation levels (hourly/daily/monthly/yearly)
+- NetCDF export per station and height level.
+
+EUMETNET's E-PROFILE programme (https://e-profile.eu/) is specifically dedicated to the collection, processing, and dissemination of wind profiler data. 
+This program aims to create a continuous and reliable observation network of wind profiles, which is essential for weather forecasting, climate modeling, 
+and emergency management. The main goal is to improve the overall usability of wind profiler data for operational meteorology and 
+to provide support and expertise to both profiler operators and end users. 
+
+---
+
+## 2. Audience
+This guide is intended for: 
+• Atmospheric scientists 
+• Data engineers working with large observational datasets 
+• Research groups performing climate
+reanalysis 
+• Renewable energy specialists analysing wind behaviour.
+
+---
+
+## 3. Software Repository
+**Repository URL:** [https://github.com/fabiomadonna/C3S2_311_bis/e-profile]
+
+**Repository Structure:**
+
+- `config/` - Configuration files
+- `converters/` - Data transformation logic
+- `database/` - Database operations and migration scripts
+- `processors/` - Core data processing logic
+- `readers/` - NetCDF file readers
+- `tests/` - Unit and integration tests
+- `utils/` - Utility functions (logging, station management)
+- `main.py` - Main entry point
+- `requirements.txt` - Python dependencies
+- `README.md` - Quick start guide
+- `SoftwareUserGuide.md` - Detailed user manual
+
+**License:** CC-BY-4.0
+
+
+
 2. OVERVIEW OF THE PROCESSING PIPELINE
-The processing workflow performs: metadata extraction ® raw data extraction and filtering ®
-cleaning ® computation of wind metrics ® multiple aggregation levels (hourly/daily/monthly/yearly)
-®
-NetCDF export per station and height level.
+
 3. WORKFLOW SCHEME (TEXT DIAGRAM)
 RAW CSV FILES
 ¯ Metadata extraction (parallel)
