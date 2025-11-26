@@ -29,6 +29,9 @@ mkdir -p $SOURCE_DIR || { echo "Failed to create directory $SOURCE_DIR"; exit 1;
 # Change to the source directory
 cd $SOURCE_DIR || { echo "Failed to change to directory $SOURCE_DIR"; exit 1; }
 
+chmod +x onlineca-get-trustroots.sh
+chmod +x onlineca-get-cert.sh
+
 # Clone the online_ca_client repository if not already present
 if [ ! -d "online_ca_client" ]; then
     git clone https://github.com/cedadev/online_ca_client || { echo "Failed to clone repository"; exit 1; }
