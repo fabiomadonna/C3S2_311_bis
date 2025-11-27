@@ -46,14 +46,14 @@ This guide is intended for:
 
 E-PROFILE/
 ├── README.md
-├── eprofile.sh # Bash script to download CEDA WINPRO datasets
-├── eprofile.R # R script for metadata extraction, data filtering (quality flag-based), aggregation, NetCDF creation
-├── Data_eprofile/ # Directory for raw and downloaded WINPRO CSV files
+├── eprofile.sh              # Bash script to download CEDA WINPRO datasets
+├── eprofile.R               # R script for metadata extraction, filtering, aggregation, NetCDF creation
+├── Data_eprofile/           # Raw and downloaded WINPRO CSV files
 ├── metadata/
-│ └── FinalCheck_datevalid_distinct_merged_metadata.xlsx # Station metadata for processing
-├── logs/ # Processing and filtering logs
-├── output/ # Aggregated CSVs and NetCDF files
-└── external/ # External repositories (e.g., online_ca_client) or certificates
+│   └── FinalCheck_datevalid_distinct_merged_metadata.xlsx   # Station metadata
+├── logs/                    # Processing and filtering logs
+└── output/                  # Aggregated CSVs and NetCDF files
+
 
 This repository contains the scripts and input files needed to download, process, and aggregate E-PROFILE wind profiler data. The structure is as follows.
 
