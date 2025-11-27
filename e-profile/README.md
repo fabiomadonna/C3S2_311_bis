@@ -2,8 +2,8 @@
 
 **Project / Activity Name:** E-PROFILE Wind Profilers' Data Processing System
 - Version:1.0.0
--Date: 2025-11-24
--Author(s): Faezeh Karimian Saracks, Fabio Madonna, Emanuele Tramutola
+- Date: 2025-11-24
+- Author(s): Faezeh Karimian Saracks, Fabio Madonna, Emanuele Tramutola
 
 ---
 
@@ -220,23 +220,23 @@ Check output/ for generated CSV and NetCDF files. Logs in logs/ can be used to v
 <img width="1008" height="482" alt="Screenshot 2025-11-27 alle 12 56 37" src="https://github.com/user-attachments/assets/836bb73a-c869-48f3-9fda-dde555143ec8" />
 
 RAW CSV FILES
-¯ Metadata extraction (parallel)
-¯ Data extraction: read, parse, filter blocks, unify
-¯ Filtering step (implausible values, QC)
-¯ Compute wind variables:
+- Metadata extraction (parallel)
+- Data extraction: read, parse, filter blocks, unify
+- Filtering step (implausible values, QC)
+- Compute wind variables:
 - wind speed
 - wind direction
 - wind power density
 - turbulence intensity
 - wind stress
 - Aggregation:
-  ® hourly
-  ® daily (24-hour completeness check)
-  ® monthly
-  ® yearly
-¯ Normalize time fields
-¯ NetCDF export (dimensions = station × height × time)
-¯ Logs saved
+  - hourly
+  - daily (24-hour completeness check)
+  - monthly
+  - yearly
+- Normalize time fields
+- NetCDF export (dimensions = station × height × time)
+- Logs saved
 
 7.1 Package loading
 The script automatically installs and loads all required packages, ensuring portability.
