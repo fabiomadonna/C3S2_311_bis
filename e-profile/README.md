@@ -43,7 +43,7 @@ This guide is intended for:
 **Repository URL:** [https://github.com/fabiomadonna/C3S2_311_bis/e-profile]
 
 **Repository Structure:**
-
+```
 E-PROFILE/
 ├── README.md
 ├── eprofile.sh              # Bash script to download CEDA WINPRO datasets
@@ -53,7 +53,7 @@ E-PROFILE/
 │   └── FinalCheck_datevalid_distinct_merged_metadata.xlsx   # Station metadata
 ├── logs/                    # Processing and filtering logs
 └── output/                  # Aggregated CSVs and NetCDF files
-
+```
 
 This repository contains the scripts and input files needed to download, process, and aggregate E-PROFILE wind profiler data. The structure is as follows.
 
