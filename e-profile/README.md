@@ -31,11 +31,11 @@ Figure 1: Distribution of E-PROFILE sites measuring wind, as of July 2024. In re
 ---
 
 ## 2. Audience
-This guide is intended for: 
-• Atmospheric scientists 
-• Data engineers working with large observational datasets 
-• Research groups performing climate reanalysis 
-• Renewable energy specialists analysing wind behaviour.
+This guide is intended for:
+- Atmospheric scientists
+- Data engineers working with large observational datasets
+- Research groups performing climate reanalysis
+- Renewable energy specialists analysing wind behaviour.
 
 ---
 
@@ -128,21 +128,21 @@ Before running the scripts, ensure the following are installed on your system:
 
 ___
 
-### Installation Steps
+**6. Installation Steps:**
 
 Follow these steps to set up the environment and prepare the repository for processing:
 
-**6. Clone the repository**
+**Clone the repository**
 
 git clone https://github.com/yourusername/E-PROFILE.git
 
 cd E-PROFILE
 
-Prepare directories:
+**Prepare directories**
 Ensure the following directories exist (the scripts will create them if missing):
 mkdir -p Data_eprofile logs output metadata external
 
-Install R packages:
+**Install R packages**
 Open R or RStudio and run:
 required_packages <- c(
   "readr","dplyr","parallel","lubridate","foreach","doParallel",
@@ -154,12 +154,53 @@ for (pkg in required_packages) {
   }
 }
 
-Download WINPRO data with Bash script:
+**Download WINPRO data with Bash script**
 bash eprofile.sh
 This will populate Data_eprofile/ with raw CSV files.
 Certificates or external tools may be stored in external/.
 
-Process data with R script:
+## Obtaining a CEDA Token
+To access E-Profile data from the CEDA Archive, an OAuth token is required. The token is used for authentication when downloading data.
+### Steps to Obtain a Token
+**Register and Log In**
+   - Go to the [CEDA Archive](https://archive.ceda.ac.uk/).
+   - Register for an account if you do not have one.
+   - Log in to your account.
+**Request OAuth Credentials**
+   - Navigate to the OAuth clients page: [CEDA OAuth Clients](https://auth.ceda.ac.uk/oauth2/clients).
+   - Request a new client ID and client secret.
+   - Note down the `CLIENT_ID` and `CLIENT_SECRET`. The token endpoint is usually:
+     ```
+     https://auth.ceda.ac.uk/oauth2/token
+     ```
+**Generate a Token**
+   You can generate a token using `curl`:
+   ```bash
+   curl -X POST https://auth.ceda.ac.uk/oauth2/token \
+        -d "grant_type=client_credentials" \
+        -u "CLIENT_ID:CLIENT_SECRET"
+
+The response contains your access_token
+{
+  "access_token": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9...",
+  "token_type": "Bearer",
+  "expires_in": 3600
+}
+Alternatively, use Python:
+import requests
+
+client_id = "YOUR_CLIENT_ID"
+client_secret = "YOUR_CLIENT_SECRET"
+token_url = "https://auth.ceda.ac.uk/oauth2/token"
+
+response = requests.post(token_url,
+                         data={"grant_type": "client_credentials"},
+                         auth=(client_id, client_secret))
+
+token = response.json()["access_token"]
+print(token)
+
+**Process data with R script**
 source("eprofile.R")
 Outputs (aggregated CSVs and NetCDF) will be saved in output/.
 
