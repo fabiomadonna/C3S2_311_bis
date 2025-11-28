@@ -40,7 +40,7 @@ This guide is intended for:
 ---
 
 ## 3. Software Repository
-**Repository URL:** [https://github.com/fabiomadonna/C3S2_311_bis/e-profile]
+**Repository URL:** [https://github.com/fabiomadonna/C3S2_311_bis]
 
 **Repository Structure:**
 ```
