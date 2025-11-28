@@ -340,7 +340,7 @@ Contributions are welcome. Please ensure tests pass before submitting changes.
 
 ## 12. Deliverable Compliance
 
-- [ ] Software placed in public repository
+- [x] Software placed in public repository
 - [x] Complete source code included
 - [x] Documentation included in repository
 - [x] Installation instructions provided
