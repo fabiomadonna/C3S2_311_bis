@@ -7,3 +7,11 @@ For the access to in-situ observations we shall expand and improve the range of 
 
 This repository will include the code for the RHARM homogenized upper-air (radiosonde) observations and for all the baseline and reference datasets covered by the C3S2 311 bis contract.
 
+Collaborators:
+
+F. Madonna
+E. Tramutala
+F. Karimian Saracks
+F. Marra
+
+Host: University of Salerno, Italy
